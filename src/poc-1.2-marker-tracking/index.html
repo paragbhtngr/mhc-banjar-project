@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <body style="margin : 0px; overflow: hidden;">
+      <script>
+        AFRAME.registerComponent('test_marker', {
+          init: function () {
+            var marker = this.el;
+            var box = document.querySelector('#box');
+
+            marker.addEventListener('markerFound', function() {
+              var markerId = marker.id;
+              console.log('markerFound', markerId);
+              // TODO: Add your own code here to react to the marker being found.
+            });
+
+            marker.addEventListener('markerLost', function() {
+              var markerId = marker.id;
+              console.log('markerLost', markerId);
+              // TODO: Add your own code here to react to the marker being lost.
+            });
+
+            box.addEventListener("mousedown", function(e) {
+              console.log(e);
+            });
+          }
+        });
+      </script>
+
+      <a-scene 
+        cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+        raycaster="objects: .intersectable"
+        vr-mode-ui="enabled: false;"
+        embedded 
+        arjs
+        main_scene
+      >
+
+        <a-marker type='pattern' id="ny_marker" url='/src/assets/markers/ny/pattern-times-square.patt' test_marker>
+          <a-entity rotation="270 0 0">
+            <!-- <a-box class="intersectable" id="box" color="#F44336" test_box></a-box> -->
+            <a-image src="/src/assets/markers/ny/pattern-times-square.png" width="1.2" height="1.2"></a-video>
+          </a-entity>
+        </a-marker>
+        
+      <a-entity camera></a-entity>
+      </a-scene>
+        
+    </body>
+</html>

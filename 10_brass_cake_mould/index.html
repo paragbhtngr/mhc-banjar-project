@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene 
+          vr-mode-ui="enabled: false;"
+          arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+          embedded 
+        >
+          <a-assets>
+            <a-asset-item  id="cake-mould" src="/10_brass_cake_mould/assets/models/cake mould.gltf" crossorigin>
+            <a-asset-item  id="cake" src="/10_brass_cake_mould/assets/models/cake.gltf" crossorigin>
+          </a-assets>
+          <a-marker type='barcode' value='10' marker_2>
+            <a-entity gltf-model="#cake-mould" scale='0.5 0.5 0.5'></a-entity>
+            <a-entity gltf-model="#cake" scale='0.5 0.5 0.5'></a-entity>
+          </a-marker>
+          <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>

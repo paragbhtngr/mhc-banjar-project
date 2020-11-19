@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene 
+          vr-mode-ui="enabled: false;"
+          arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+          embedded 
+        >
+          <a-assets>
+            <a-asset-item  id="combined" src="/5_travel_chest/assets/models/combined.gltf" crossorigin>
+          </a-assets>
+          <a-marker type='barcode' value='5' marker_2>
+            <a-entity gltf-model="#combined" scale='0.1 0.1 0.1'></a-entity>
+          </a-marker>
+          <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>

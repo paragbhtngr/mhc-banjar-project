@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script>
+      AFRAME.registerComponent('marker_2', {
+        init: function () {
+          var marker = this.el;
+          this.toggle = false;
+          this.vid = document.querySelector("#vid");
+          console.log("pausing video");
+          vid.pause();
+        },
+        tick:function() {
+          console.log("VIDEO STATUS:", vid.currentTime);
+          if(this.el.object3D.visible == true){
+            if(!this.toggle){
+              this.toggle = true;
+              this.vid.play();
+            }
+          }else{
+            this.toggle = false;
+            this.vid.pause();
+          }
+        }
+      });
+    </script>
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene 
+          vr-mode-ui="enabled: false;"
+          arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+          embedded 
+        >
+          <a-assets>
+            <video 
+              id="vid"
+              src="/6_banjar_wedding/assets/video/banjar_wedding_video.mp4" 
+              loop="true"
+              crossorigin
+            >
+          </a-assets>
+          <a-marker type='barcode' value='6' marker_2>
+            <a-plane position='1 2 -2' scale="2 2 2" width="2" rotation="-90 0 0" material='src:#vid'></a-plane>
+          </a-marker>
+          <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene 
+          vr-mode-ui="enabled: false;"
+          embedded 
+          arjs
+        >
+          <a-nft
+            type="nft"
+            url="/src/assets/markers/ny/times-square"
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance=".01"
+            smoothThreshold="5"
+          >
+            <a-entity
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="1 1 1"
+            gltf-model="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF/Duck.gltf"
+            ></a-entity>
+          </a-nft>
+          <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>

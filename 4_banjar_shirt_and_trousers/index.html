@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoC Demo 1</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</head>
+<body style="margin : 0px; overflow: hidden;">
+  <div id="card">
+    <model-viewer 
+      src="/4_banjar_shirt_and_trousers/assets/models/combined.gltf" 
+      ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" 
+      camera-controls alt="Traditional Banjar Shirt and Trousers" 
+    >
+    </model-viewer>
+  </div>
+  <style>
+    body {
+      margin: 1em;
+      padding: 0;
+      font-family: Google Sans, Noto, Roboto, Helvetica Neue, sans-serif;
+      color: #244376;
+    }
+
+
+    #card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+      height: 100%;
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      background-color: #343535;
+      --poster-color: #ffffff00;
+    }
+  </style>
+</body>
+
+</html>
+<!-- ios-src="../shared-assets/models/Astronaut.usdz" -->
