@@ -11,12 +11,12 @@
           embedded 
         >
           <a-assets>
-            <a-asset-item  id="cake-mould" src="/10_brass_cake_mould/assets/models/cake mould.gltf" crossorigin>
             <a-asset-item  id="cake" src="/10_brass_cake_mould/assets/models/cake.gltf" crossorigin>
           </a-assets>
           <a-marker type='barcode' value='10' marker_2>
-            <a-entity gltf-model="#cake-mould" scale='0.5 0.5 0.5'></a-entity>
-            <a-entity gltf-model="#cake" scale='0.5 0.5 0.5'></a-entity>
+            <a-entity light="type: ambient; color: #FFF"></a-entity>
+            <a-entity light="type: point; intensity: 4; distance: 50; decay: 0" position="0 10 0"></a-entity>
+            <a-entity gltf-model="#cake" scale='0.7 0.7 0.7'></a-entity>
           </a-marker>
           <a-entity camera></a-entity>
         </a-scene>

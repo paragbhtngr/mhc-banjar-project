@@ -124,7 +124,7 @@ AFRAME.registerComponent('refraction-shader', {
       this.material  = new THREE.ShaderMaterial({
           uniforms: {
               envMap: { type: 't', value: texture },
-              uReso: { value: new THREE.Vector2(0,0) }
+              uReso: { value: new THREE.Vector2(100,100) }
           },
           vertexShader : vertexShader,
           fragmentShader : fragShader

@@ -10,11 +10,13 @@
           arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
           embedded 
         >
-          <a-assets>
-            <a-asset-item  id="kueh" src="/9_ar_kueh/assets/models/talam_banjar.gltf" crossorigin>
+        
+        <a-assets>
+          <a-asset-item  id="kueh" src="/9_ar_kueh/assets/models/combined.gltf" crossorigin>
           </a-assets>
           <a-marker type='barcode' value='9' marker_2>
-            <a-entity gltf-model="#kueh" scale='0.5 0.5 0.5'></a-entity>
+            <a-entity light="type: ambient; color: #FFF"></a-entity>
+            <a-entity gltf-model="#kueh" scale='0.7 0.7 0.7' position='5 0 -5'></a-entity>
           </a-marker>
           <a-entity camera></a-entity>
         </a-scene>

@@ -10,20 +10,40 @@
           artoolkit="sourceType: webcam;"
           vr-mode-ui="enabled: false;"
           arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+          arjs-look-controls="smoothingFactor: 0.3"
           embedded 
         >
           <a-assets>
             <a-asset-item id="diamond-src" src="/3_ar_diamonds/assets/models/banjarmasin.obj"></a-asset-item>
+            <a-asset-item id="d1-src" src="/3_ar_diamonds/assets/models/d1.obj"></a-asset-item>
+            <a-asset-item id="d2-src" src="/3_ar_diamonds/assets/models/d2.obj"></a-asset-item>
             <img id="sky" crossorigin="anonymous" src="https://cdn.glitch.com/e6225ccd-c32e-4cf8-b039-e78814a8cb78%2Fbg-3.jpg">
           </a-assets>
           <a-marker type='barcode' value='3'>
             <a-entity 
-              id="diamond" 
-              obj-model="obj: #diamond-src" 
-              position="0 0 0" 
-              refraction-shader="" 
-              rotation="0 90 0" 
-              scale="0.5 0.5 0.5"
+              id="diamond" obj-model="obj: #diamond-src" refraction-shader="" 
+              position="-6 1.8 -6" rotation="0 90 20" scale="0.5 0.5 0.5" 
+            ></a-entity>
+            <!-- guide to position="right up down" rotation="anticlockwise left forwards"-->
+            <a-entity 
+              id="d1-1" obj-model="obj: #d1-src" refraction-shader="" 
+              position="-6 2 -6" rotation="0 90 20"  scale="0.5 0.5 0.5"
+            ></a-entity>
+            <a-entity 
+              id="d1-2" obj-model="obj: #d1-src" refraction-shader="" 
+              position="-10 2.1 -7" rotation="0 90 20"  scale="0.5 0.5 0.5"
+            ></a-entity>
+            <a-entity 
+              id="d1-3" obj-model="obj: #d1-src" refraction-shader="" 
+              position="-8 1.8 -2" rotation="0 90 20"  scale="0.5 0.5 0.5"
+            ></a-entity>
+            <a-entity 
+              id="d2-1" obj-model="obj: #d2-src" refraction-shader="" 
+              position="-6 0 -4" rotation="0 90 20"  scale="0.5 0.5 0.5"
+            ></a-entity>
+            <a-entity 
+              id="d2-2" obj-model="obj: #d2-src" refraction-shader="" 
+              position="-7 1 -8" rotation="0 90 20"  scale="0.5 0.5 0.5"
             ></a-entity>
             <!-- <a-entity geometry="primitive: dodecahedron" position="0 0 0" rotation="0 0 0" scale="0.1 0.1 0.1"></a-entity> -->
           </a-marker>
