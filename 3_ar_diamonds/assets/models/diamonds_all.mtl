@@ -1,0 +1,20 @@
+# Blender MTL File: 'diamonds.blend'
+# Material Count: 2
+
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+
+newmtl banjar_mat
+Ns 900.000000
+Ka 0.912088 0.912088 0.912088
+Kd 0.848065 0.840749 0.785413
+Ks 0.516484 0.516484 0.516484
+Ke 0.000000 0.000000 0.000000
+Ni 2.418000
+d 1.000000
+illum 3
