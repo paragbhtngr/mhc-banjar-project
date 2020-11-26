@@ -1,9 +1,44 @@
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Travel Chest</title>
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script>
+      AFRAME.registerComponent("marker_2", {
+        init: function() {
+          this.target = document.querySelector('#target');
+          this.prevPosition = null;
+          this.prevRotation = null;
+        },
+        tick: function() {
+          if (this.el.object3D.visible) {
+            this.target.setAttribute('visible', 'true')
+            if(this.prevPosition) {
+              this.target.object3D.position.lerp(this.prevPosition, 0.1)
+              let rot = this.target.object3D.rotation.toVector3().lerp(this.prevRotation, 0.1)
+              this.target.object3D.rotation.setFromVector3(rot)
+            } else {
+              this.target.setAttribute('position', this.el.getAttribute('position'))
+              this.target.setAttribute('rotation', this.el.getAttribute('rotation'))
+            }
+            this.prevPosition = this.el.object3D.position
+            this.prevRotation = this.el.object3D.rotation
+
+            } else {
+            this.target.setAttribute('visible', 'false')
+              this.prevPosition = null;
+              this.prevRotation = null;
+            }
+        }
+      })
+    </script>
+  </head>
+   
     <body style="margin : 0px; overflow: hidden;">
         <a-scene 
           vr-mode-ui="enabled: false;"
@@ -14,7 +49,7 @@
             <a-asset-item  id="combined" src="/5_travel_chest/assets/models/combined.gltf" crossorigin>
           </a-assets>
           <a-marker type='barcode' value='5' marker_2>
-            <a-entity gltf-model="#combined" rotation="0 90 0" scale='0.6 0.6 0.6'></a-entity>
+            <a-entity id="target" gltf-model="#combined" rotation="0 90 0" scale='0.6 0.6 0.6'></a-entity>
           </a-marker>
           <a-entity camera></a-entity>
         </a-scene>
