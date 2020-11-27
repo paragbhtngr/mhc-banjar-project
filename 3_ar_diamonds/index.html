@@ -9,7 +9,7 @@
       <!-- we import arjs version without NFT but with marker + location based support -->
       <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
       <script src='ar-refraction-shader.js'></script>
-      <script>
+      <!-- <script>
         AFRAME.registerComponent("marker_2", {
           init: function() {
             this.target = document.querySelector('#target');
@@ -37,11 +37,10 @@
               }
           }
         })
-      </script>
+      </script> -->
     </head>
     <body style="margin : 0px; overflow: hidden;">
-        <a-scene  
-          artoolkit="sourceType: webcam;"
+        <a-scene
           vr-mode-ui="enabled: false;"
           arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
           arjs-look-controls="smoothingFactor: 0.3"
@@ -56,7 +55,7 @@
           <a-marker type='barcode' value='3' marker_2>
             <a-entity 
               id="target" obj-model="obj: #diamond-src" refraction-shader="" 
-              position="0 -2 -6" rotation="0 90 -70" scale="0.5 0.5 0.5" 
+              position="0 -2 -3.4" rotation="0 90 -70" scale="0.3 0.3 0.3" 
             ></a-entity>
             <!-- guide to position="right up down" rotation="anticlockwise left forwards"-->
             <!-- <a-entity 

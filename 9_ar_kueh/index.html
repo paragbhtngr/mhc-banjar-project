@@ -8,7 +8,7 @@
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script>
+    <!-- <script>
        AFRAME.registerComponent("marker_2", {
           init: function() {
             this.target = document.querySelector('#target');
@@ -36,14 +36,13 @@
             }
         }
       })
-    </script>
+    </script> -->
   </head>
 
     <body style="margin : 0px; overflow: hidden;">
         <a-scene 
           vr-mode-ui="enabled: false;"
           arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
-          arjs-look-controls="smoothingFactor: 0.3"
           embedded 
         >
         
@@ -52,7 +51,7 @@
           </a-assets>
           <a-marker type='barcode' value='9' marker_2>
             <a-entity light="type: ambient; color: #FFF"></a-entity>
-            <a-entity id="target" gltf-model="#kueh" rotation="20 0 0" scale='0.6 0.6 0.6' position='5 0 -8.5'></a-entity>
+            <a-entity id="target" gltf-model="#kueh" rotation="20 0 0" scale='0.6 0.6 0.6' position='3.8 -1 -12.5'></a-entity>
           </a-marker>
           <a-entity camera></a-entity>
         </a-scene>
