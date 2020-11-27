@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>POV Video of boat</title>
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
     <!-- we import arjs version without NFT but with marker + location based support -->
@@ -54,6 +55,7 @@
         >
           <a-assets>
             <video 
+              playsinline webkit-playsinline
               id="vid"
               src="/2_pov_video_of_boat/assets/video/20200130_065952.mp4" 
               loop="true"
@@ -61,7 +63,7 @@
             >
           </a-assets>
           <a-marker type='barcode' value='2' marker_2>
-            <a-plane position='-5 0 -2' scale="4 4 4" width="2" rotation="-90 0 0" material='src:#vid'></a-plane>
+            <a-plane playsinline webkit-playsinline position='-5 0 -2' scale="4 4 4" width="2" rotation="-90 0 0" material='src:#vid'></a-plane>
             <!-- 
               Width and Height of assets are proportional to the marker size (1 1). Real life size of marker is 1.5" / 3.9cm.
               So divide real-life measurement in cm by 3.9 and inches by 1.5
